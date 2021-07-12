@@ -74,13 +74,12 @@ public class LoadingActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Boolean> task) {
                                             try {
                                                 String param = firebaseRemoteConfig.getValue("link").asString();
-                                                JSONObject linkGame = new JSONObject(param);
                                                 JSONObject jsonObject = new JSONObject(conversionData);
                                                 if (jsonObject.optString("af_status").equals("Non-organic")) {
                                                     String campaign = jsonObject.optString("campaign");
                                                     String[] splitsCampaign = campaign.split("_");
                                                     OneSignal.sendTag("user_id", splitsCampaign[2]);
-                                                    String url = linkGame.optString("link") + "?naming=" + campaign + "&apps_uuid=" + AppsFlyerLib.getInstance().getAppsFlyerUID(getApplicationContext()) + "&adv_id=" + jsonObject.optString("ad_id");
+                                                    String url = param + "?naming=" + campaign + "&apps_uuid=" + AppsFlyerLib.getInstance().getAppsFlyerUID(getApplicationContext()) + "&adv_id=" + jsonObject.optString("ad_id");
                                                     saver.setUrlReference(url);
                                                     playWebView();
                                                 }
@@ -89,7 +88,7 @@ public class LoadingActivity extends AppCompatActivity {
                                                     int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
                                                     boolean isCharging = isPhonePluggedIn();
                                                     if (!(((batLevel == 100 || batLevel == 90) && isCharging) || isDevMode())) {
-                                                        String url = linkGame.optString("link") + "?naming=null" + "&apps_uuid=" + AppsFlyerLib.getInstance().getAppsFlyerUID(getApplicationContext()) + "&adv_id=null";
+                                                        String url = param + "?naming=null" + "&apps_uuid=" + AppsFlyerLib.getInstance().getAppsFlyerUID(getApplicationContext()) + "&adv_id=null";
                                                         saver.setUrlReference(url);
                                                         playWebView();
                                                     } else {
