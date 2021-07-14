@@ -1,4 +1,4 @@
-package com.my.storyofegypt;
+package com.story.egypt;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +38,8 @@ public class ShowActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show);
+
         webView = new WebView(this);
 
         Saver saver = new Saver();
@@ -170,11 +172,9 @@ public class ShowActivity extends AppCompatActivity {
             }
         });
 
-        if (!url.isEmpty()) {
-            webView.loadUrl(url);
-        } else {
-            startActivity(new Intent(ShowActivity.this, MainActivity.class));
-        }
+
+        webView.loadUrl(url);
+
     }
 
     @Override

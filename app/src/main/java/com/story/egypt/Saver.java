@@ -1,11 +1,12 @@
-package com.my.storyofegypt;
+package com.story.egypt;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Saver extends AppCompatActivity {
+public class Saver extends Activity {
 
     public SharedPreferences sharedPreferences;
 

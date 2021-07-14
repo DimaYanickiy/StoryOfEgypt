@@ -1,4 +1,4 @@
-package com.my.storyofegypt;
+package com.story.egypt;
 
 import androidx.appcompat.app.AppCompatActivity;
 

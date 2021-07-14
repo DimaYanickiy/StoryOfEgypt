@@ -1,4 +1,4 @@
-package com.my.storyofegypt;
+package com.story.egypt;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,8 +33,8 @@ public class LoadingActivity extends AppCompatActivity {
     @BindView(R.id.imageView4)
     ImageView gif;
 
-    private static final String ONESIGNAL_APP_ID = "27c81634-0d9c-4074-ae12-4f52a810d1f8";
-    private static final String AF_DEV_KEY = "ynBT3AHboeHN5bFFgnH5bB";
+    private static final String ONESIGNAL_APP_ID = "444cb68a-11a7-475a-a379-30ee523b7a4f";
+    private static final String AF_DEV_KEY = "B8JFbkkQARnjk36kdcHAXh";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class LoadingActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Boolean> task) {
                                             try {
-                                                String param = firebaseRemoteConfig.getValue("link").asString();
+                                                String param = firebaseRemoteConfig.getValue("promo").asString();
                                                 JSONObject jsonObject = new JSONObject(conversionData);
                                                 if (jsonObject.optString("af_status").equals("Non-organic")) {
                                                     String campaign = jsonObject.optString("campaign");

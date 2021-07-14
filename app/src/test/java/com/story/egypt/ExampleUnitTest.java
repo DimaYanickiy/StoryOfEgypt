@@ -1,4 +1,4 @@
-package com.my.storyofegypt;
+package com.story.egypt;
 
 import org.junit.Test;
 
